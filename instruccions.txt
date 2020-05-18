@@ -1,0 +1,41 @@
+
+
+AWS Account (a dalt a l'esquerra)
+
+AWS console
+
+"Launch instance"
+
+Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
+"t2.micro" --> Review and Launch
+
+crear la key i posarla a la carpeta ".ssh"
+(la key ha de ser compartida per totes les instancies i pot ser reutilitzada)
+
+--------------------------------------------------------------
+
+
+		chmod 400 ~/.ssh/k.pem
+
+	Conectar-se a una maquina
+		ssh -i ~/.ssh/k.pem ubuntu@IP
+
+	Instalar software necessari
+		sh automatic_deploy.sh ~/.ssh/k.pem IPs
+	
+	Copiar fitxers a la màquina
+		scp -i ~/.ssh/k.pem Tweets.json ubuntu@IP
+		scp -i ~/.ssh/k.pem implementacion.py ubuntu@IP
+	o:
+		sh fileTransfer.sh
+
+----------------------------------------------------------------
+
+	Start master
+		spark-2.4.3-bin-hadoop2.7/sbin/start-master.sh
+	Start slaves 
+		spark-2.4.3-bin-hadoop2.7/sbin/start-master.sh
+
+$ time spark-submit your-job-here.py
+
+
