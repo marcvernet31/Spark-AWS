@@ -16,7 +16,6 @@ auth.set_access_token(access_token, access_secret)
 api = tweepy.API(auth)
 
 
-
 class MyListener(StreamListener):
 	def __init__(self, time_limit=60):
 		self.start_time = time.time()
@@ -36,4 +35,3 @@ class MyListener(StreamListener):
 
 twitter_stream = Stream(auth, MyListener(time_limit=(10*60)))
 twitter_stream.sample()
-#twitter_stream.filter(track=['COVID19'])
